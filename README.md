@@ -1,3 +1,6 @@
+<p align="center">
+  <img alt="VanirLab" src="https://github.com/VanirLab/portx/blob/master/portx.png" height="142" />
+</a>
 # portx
 A small port yoctoarchitecture!
 
