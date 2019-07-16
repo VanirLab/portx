@@ -3,9 +3,9 @@
 </a>
 
 <p align="center">
-# portx
-A small port yoctoarchitecture!
+Portx A small port yoctoarchitecture!
 </p>
+
 ## Requirements
 
 ```py
