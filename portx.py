@@ -195,7 +195,7 @@ def mdomain(domain):
 ######################
 #####PORTX SNIFFER####
 ######################
-def port_sniff(data, portstamp):
+def port_sniff(data):
     if not data:
         return
 
@@ -229,36 +229,39 @@ class removeNoPorts(list):
             raise AttributeError(port)
         return list.__delattr__(self, port)
 
+class airPortCompression():
+    def __getattribute__(self, item):
+        ra
 
 ######################
-#####PORTX LOAD#######
+#####PORTX BINDER#######
 ######################
-async def port_load(delay):
+def port_binder(proto):
 
-    load = socket.socket(socket.AF_INET, socket.AF_INET6, socket.SOCK_STREAM)
-    tim = time.thread_time(sys.thread_info)
 
-    if load < 10:
-        print('loading')
-    elif await asyncio.sleep(delay) < 20:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 30:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 40:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 50:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 60:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 70:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 80:
-        print("loading....")
-    elif await asyncio.sleep(delay) < 90:
-        print("loading....")
+    # create a raw socket and bind it to the public interface
+    if os.name == "nt":
+        socket_protocol = socket.IPPROTO_IP
+    elif os.name == "nt":
+        socket_protocol = socket.BTPROTO_RFCOMM
+    elif os.name == "nt":
+        socket_protocol = socket.IP_MULTICAST_IF
+    elif os.name == "nt":
+        socket_protocol = socket.IP_DEFAULT_MULTICAST_TTL
     else:
-        print("finnish....", tim)
-        sys.close()
+        socket_protocol = socket.IPPROTO_ICMP
+
+        # read in a single packet
+
+        try:
+            print (socket_protocol)
+        except socket.error as error_msg:
+            sys.exc_info()
+        try:
+            print(captured_data.recvfrom(65565))
+        except socket.error as error_msg:
+            sys.exit()
+
 
 ######################
 #####PORTX SHELL##
@@ -357,6 +360,8 @@ def reload_bad_port_module(self, *args, **kwargs):
 
 #TODO
 def port_splitter(self):
+    self.split_raw(0)
+    self.split_half(2)
     return None
 
 ######################
@@ -481,9 +486,10 @@ if __name__ == '__main__':
     #parser.parse_args(['--start-port'])
     parser.add_argument('--end-port', action="store", dest="end_port", default=100, type=int)
     given_args = parser.parse_args()
-    host, start_port, end_port =  given_args.host, given_args.start_port, given_args.end_port
+    host, start_port, end_port, monitor_packet =  given_args.host, given_args.start_port, given_args.end_port, given_args.monitor_packet
     scan_ports(host, start_port, end_port)
-
+    monitor_packet(pkt)
+    port_binder(proto)
 
 
 
